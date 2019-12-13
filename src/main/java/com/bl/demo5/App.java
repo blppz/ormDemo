@@ -1,6 +1,5 @@
-package com.bl.demo2;
+package com.bl.demo5;
 
-import com.bl.bean.Person;
 import com.bl.db.DBUtil;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ import java.sql.ResultSet;
 @SuppressWarnings("all")
 public class App {
 
-  // 175
+  //
 
   @Test
   public void test() throws Exception {
@@ -26,9 +25,10 @@ public class App {
     ResultSet resultSet = pst.executeQuery();
 
     long start = System.currentTimeMillis();
+    AbstractEntityHelper entityHelper = EntityHelperFactory.getEntityHelper(Person.class);
 
     while(resultSet.next()) {
-      Person person = DBHelper.getPerson(resultSet);
+      Person person = (Person)entityHelper.create(resultSet);
     }
 
     long end = System.currentTimeMillis();

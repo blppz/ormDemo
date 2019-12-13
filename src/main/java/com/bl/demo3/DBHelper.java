@@ -8,6 +8,7 @@ import java.sql.ResultSet;
  * @Author BarryLee
  * @Date 2019/12/12 14:50
  */
+@SuppressWarnings("all")
 public class DBHelper {
 
   public static Person getPerson(ResultSet resultSet) throws Exception {
